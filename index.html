@@ -15,8 +15,29 @@
     publicKey: "hWJSk96xilhXE3XEf",
   });
 })();
-</script>
+</script> // code written by lodu pratham ends here
+    
 <script src="response.js"></script>
+     <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("hWJSk96xilhXE3XEf"); // Initialize EmailJS with your user ID
+    })();
+    
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      // These IDs from the HTML are used to get the form data
+      const serviceID = 'email';
+      const templateID = 'message';
+
+      emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+          alert('Message sent successfully!');
+        }, (err) => {
+          alert(JSON.stringify(err));
+        });
+    });
 </head>
 <body class="bg-gray-100 text-gray-900">
 
